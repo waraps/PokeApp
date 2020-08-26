@@ -3,11 +3,7 @@ import { Text, StyleSheet, View } from 'react-native'
 
 export default class PokeDisplay extends Component {
   render() {
-    return (
-      <View>
-        <Text> PokeDisplay </Text>
-      </View>
-    )
+    return <View>{this.props.pokemon && <Text> {this.props.pokemon.name} </Text>}</View>
   }
 }
 
