@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 // Components
 import Navbar from '../components/Navbar'
 
+// Assests
+import { COLORS } from '../assets/colors'
+
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Navbar />
-      <Text>Home</Text>
-      <Text>Open up App.js to start working on your app!</Text>
-      <TouchableOpacity onPress={() => navigation.push('CatchThem')}>
-        <Text>Navigate to</Text>
-      </TouchableOpacity>
-      <StatusBar style='auto' />
+      <Navbar navigation={navigation} />
+      <StatusBar style='light' />
     </View>
   )
 }
@@ -22,7 +20,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.darkRed,
     alignItems: 'center',
     justifyContent: 'center'
   }
