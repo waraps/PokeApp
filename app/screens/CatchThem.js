@@ -10,7 +10,7 @@ import PokeDisplay from '../components/PokeDisplay'
 import { catchPokemon } from '../api/index'
 
 // Assests
-import { COLORS } from '../assets/colors'
+import { COLORS } from '../utils/colors'
 
 export default function CatchThem({ navigation }) {
   const [pokemon, setPokemon] = useState(null)
@@ -38,7 +38,7 @@ export default function CatchThem({ navigation }) {
       {
         isLoading ? <ActivityIndicatorApp /> : <PokeDisplay pokemon={pokemon}/>
       }
-      <StatusBar style='auto' />
+      <StatusBar style='light' backgroundColor='#9A0000' />
     </View>
   )
 }
