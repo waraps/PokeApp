@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 // Components
+import ActivityIndicatorApp from '../components/ActivityIndicatorApp'
 import PokeDisplay from '../components/PokeDisplay'
 
 // API
@@ -13,6 +14,7 @@ import { COLORS } from '../assets/colors'
 
 export default function CatchThem({ navigation }) {
   const [pokemon, setPokemon] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     getPokemon()
   }, [])
@@ -22,8 +24,10 @@ export default function CatchThem({ navigation }) {
       const response = await catchPokemon.catchIt(1)
       const pokeResponse = await response.json()
       setPokemon(pokeResponse)
+      setIsLoading(false)
     } catch (error) {
       console.log(error + 'Error al capturar pokemon')
+      setIsLoading(false)
     }
   }
 
@@ -31,7 +35,9 @@ export default function CatchThem({ navigation }) {
     <View style={styles.container}>
       <Text>Catch'em</Text>
       <Text>Open up App.js to start working on your app!</Text>
-      <PokeDisplay pokemon={pokemon}/>
+      {
+        isLoading ? <ActivityIndicatorApp /> : <PokeDisplay pokemon={pokemon}/>
+      }
       <StatusBar style='auto' />
     </View>
   )
