@@ -28,13 +28,12 @@ export default class PokeDisplay extends Component {
             <Text style={styles.pokedetailsText}>Type</Text>
             {pokemon.types.map((type) => {
               return (
-                <View style={styles.itemContainer}>
+                <View style={styles.itemContainer} key={type.type.name}>
                   <Image
-                    key={type.type.url}
                     style={styles.tinyAbility}
                     source={require("../assets/img/pokeIcon.png")}
                   />
-                  <Text style={styles.itemDetails} key={type.slot}>
+                  <Text style={styles.itemDetails}>
                     {type.type.name}
                   </Text>
                 </View>
@@ -43,13 +42,12 @@ export default class PokeDisplay extends Component {
             <Text style={styles.pokedetailsText}>Abilities</Text>
             {pokemon.abilities.map((ability) => {
               return (
-                <View style={styles.itemContainer}>
+                <View style={styles.itemContainer} key={ability.ability.name}>
                   <Image
-                    key={ability.ability.url}
                     style={styles.tinyAbility}
                     source={require("../assets/img/pokeIcon.png")}
                   />
-                  <Text style={styles.itemDetails} key={ability.slot}>
+                  <Text style={styles.itemDetails}>
                     {ability.ability.name}
                   </Text>
                 </View>
