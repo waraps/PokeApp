@@ -26,7 +26,7 @@ export default function CatchThem({ navigation }) {
   const getPokemon = async () => {
     try {
       setIsLoading(true)
-      const response = await catchPokemon.catchIt(search);
+      const response = await catchPokemon.catchIt(search.length === 0 ? '1' : search);
       const pokeResponse = await response.json();
       setPokemon(pokeResponse);
       setIsLoading(false);
