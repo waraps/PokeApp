@@ -52,6 +52,7 @@ export default function CatchThem({ navigation }) {
         list.push(pokemon)
         await localStorgae.setPokemon(list)
       }
+      navigation.push('Home')
       setIsLoading(false)
     } catch (error) {
       console.log(erro + 'Error al capturar pokemon')
