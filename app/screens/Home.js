@@ -35,7 +35,7 @@ export default function Home({ navigation }) {
       <Navbar style={styles.navbar} navigation={navigation} />
       <View style={styles.pokeList}>
       {pokemons.map(pokemon => {
-        return <PokeCard key={pokemon.name} pokemon={pokemon} />
+        return <PokeCard key={pokemon.name} pokemon={pokemon} navigation={navigation} />
       })}
       </View>
       <StatusBar style='light' backgroundColor='#9A0000' />
