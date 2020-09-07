@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
   },
   pokeList: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'flex-start',
+    flexWrap: "wrap",
   }
 })
