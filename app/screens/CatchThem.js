@@ -71,6 +71,7 @@ export default function CatchThem({ navigation }) {
           maxLength={24}
           onChangeText={text => setSearch(text)}
           value={search}
+          autoCapitalize='none'
         />
         <AntDesign name='search1' size={28} color={COLORS.navyBlue} />
       </View>
