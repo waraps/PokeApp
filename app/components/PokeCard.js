@@ -5,9 +5,9 @@ import { COLORS } from '../utils/colors'
 
 export default class PokeCard extends Component {
   render() {
-    const { pokemon } = this.props
+    const { pokemon, navigation } = this.props
     return (
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.push('PokeDetails', { pokemon })}>
         <Image style={styles.tinyLogo} source={{ uri: pokemon.sprites.front_default }}/>
         <Text style={[styles.text, {textTransform: 'capitalize', fontWeight: 'bold'}]}> {pokemon.name} </Text>
         <Text style={{fontSize: 12, textAlign: "center",}}> W: {pokemon.weight * 0.1} Kg</Text>
