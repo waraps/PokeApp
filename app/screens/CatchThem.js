@@ -93,7 +93,7 @@ export default function CatchThem({ navigation }) {
       <View style={styles.search}>
         <TextInput
           style={styles.searchInput}
-          placeholder="Search"
+          placeholder="name or id (Ex. bulbasaur or 1)"
           placeholderTextColor={COLORS.navyBlue}
           underlineColorAndroid="transparent"
           maxLength={24}
