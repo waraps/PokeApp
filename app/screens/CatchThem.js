@@ -27,8 +27,10 @@ import { COLORS } from "../utils/colors";
 export default function CatchThem({ navigation }) {
   const [search, setSearch] = useState("1");
   const [pokemon, setPokemon] = useState(null);
+  const [myPokemons, setMyPokemons] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    getStoragedPokemon();
     getPokemon();
   }, [search]);
 
@@ -47,28 +49,39 @@ export default function CatchThem({ navigation }) {
     }
   };
 
+  getStoragedPokemon = async () => {
+    try {
+      setMyPokemons(await localStorgae.getPokemon());
+    } catch (error) {
+      console.log(error + "error al obtner pokemons");
+    }
+  };
+
   const catchingIt = async () => {
     try {
       setIsLoading(true);
-      let pokemons = await localStorgae.getPokemon();
-      if (pokemons) {
-        const check = pokemons.find((poke) => {
+      let list = [];
+      if (myPokemons) {
+        const check = myPokemons.find((poke) => {
           return pokemon.name === poke.name;
         });
         if (!check) {
-          pokemons.push(pokemon);
-          await localStorgae.setPokemon(pokemons);
+          list = myPokemons;
+          list.push(pokemon);
+          setMyPokemons(list);
+          await localStorgae.setPokemon(list);
+          setIsLoading(false);
           navigation.push("Home");
         } else {
+          setIsLoading(false);
           alert("This pokemon already was catched");
         }
       } else {
-        let list = [];
         list.push(pokemon);
         await localStorgae.setPokemon(list);
+        setIsLoading(false);
         navigation.push("Home");
       }
-      setIsLoading(false);
     } catch (error) {
       console.log(erro + "Error al capturar pokemon");
       setIsLoading(false);
