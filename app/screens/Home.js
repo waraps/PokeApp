@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 
 // Expo imports
 import Constants from 'expo-constants'
@@ -33,11 +33,13 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Navbar style={styles.navbar} navigation={navigation} />
+      <ScrollView>
       <View style={styles.pokeList}>
       {pokemons.map(pokemon => {
         return <PokeCard key={pokemon.name} pokemon={pokemon} navigation={navigation} />
       })}
       </View>
+      </ScrollView>
       <StatusBar style='light' backgroundColor='#9A0000' />
     </View>
   )
