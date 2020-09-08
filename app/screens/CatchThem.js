@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
   searchInput: {
     width: "95%",
     fontSize: 15,
+    fontFamily: "ValeriaRound-Regular",
   },
   catchButton: {
     width: "80%",
@@ -146,6 +147,6 @@ const styles = StyleSheet.create({
   catchText: {
     color: COLORS.white,
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: "ValeriaRound-Regular",
   },
 });

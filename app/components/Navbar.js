@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 10,
-    paddingVertical: 8,
     backgroundColor: COLORS.darkRed,
     borderWidth: 0.8,
     borderColor: "rgba(154, 0, 0, 0.8)",
@@ -39,15 +38,19 @@ const styles = StyleSheet.create({
     height: 40,
   },
   search: {
-    flexDirection: "row",
+    flexDirection: "column-reverse",
+    justifyContent: "center",
+    alignItems: "center"
   },
   searchText: {
-    color: COLORS.white,
+    color: COLORS.yellow,
     textAlign: "center",
-    fontWeight: "bold",
+    fontSize: 12,
+    fontFamily: "ValeriaRound-Regular",
   },
   dittoTinyLogo: {
-    width: 28,
-    height: 23,
+    marginTop: 5,
+    width: 35,
+    height: 30,
   },
 });
