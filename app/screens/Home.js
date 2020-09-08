@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   pokeList: {
+    padding: 5,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     flexWrap: "wrap",
   }
 })

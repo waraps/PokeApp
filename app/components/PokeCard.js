@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, TouchableOpacity, View, Text, Image} from 'react-native'
+import { StyleSheet, TouchableOpacity, View, Text, Image } from 'react-native'
 
 import { COLORS } from '../utils/colors'
 
@@ -7,11 +7,20 @@ export default class PokeCard extends Component {
   render() {
     const { pokemon, navigation } = this.props
     return (
-      <TouchableOpacity style={styles.button} onPress={() => navigation.push('PokeDetails', { pokemon })}>
-        <Image style={styles.tinyLogo} source={{ uri: pokemon.sprites.front_default }}/>
-        <Text style={[styles.text, {textTransform: 'capitalize', fontWeight: 'bold'}]}> {pokemon.name} </Text>
-        <Text style={{fontSize: 12, textAlign: "center",}}> W: {pokemon.weight * 0.1} Kg</Text>
-        <Text style={{fontSize: 12, textAlign: "center",}}> H: {(pokemon.height * 0.1).toFixed(1)} m</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.push('PokeDetails', { pokemon })}
+      >
+        <Image style={styles.tinyLogo} source={{ uri: pokemon.sprites.front_default }} />
+        <Text style={[styles.text, { textTransform: 'capitalize', fontWeight: 'bold' }]}>
+          {' '}
+          {pokemon.name}{' '}
+        </Text>
+        <Text style={{ fontSize: 12, textAlign: 'center' }}> W: {pokemon.weight * 0.1} Kg</Text>
+        <Text style={{ fontSize: 12, textAlign: 'center' }}>
+          {' '}
+          H: {(pokemon.height * 0.1).toFixed(1)} m
+        </Text>
       </TouchableOpacity>
     )
   }
@@ -19,15 +28,18 @@ export default class PokeCard extends Component {
 
 const styles = StyleSheet.create({
   button: {
-    borderWidth: .2,
-    borderColor: COLORS.lightBlue,
-    borderRadius: 15,
+    marginVertical: 3,
+    marginHorizontal: 4,
+    paddingHorizontal: 2,
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    elevation: 9
   },
   tinyLogo: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120
   },
   text: {
-    textAlign: "center",
-  },
+    textAlign: 'center'
+  }
 })
