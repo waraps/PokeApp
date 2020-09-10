@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, ScrollView } from 'react-native'
+import { StyleSheet, View, Text, ScrollView } from 'react-native'
 
 // Expo imports
 import Constants from 'expo-constants'
@@ -33,6 +33,9 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Navbar style={styles.navbar} navigation={navigation} />
+    <View style={styles.pokeCount}>
+    <Text style={styles.pokeCountText}>Total Pokemons catched: {pokemons.length}</Text>
+    </View>
       <ScrollView>
       <View style={styles.pokeList}>
       {pokemons.map(pokemon => {
@@ -53,6 +56,16 @@ const styles = StyleSheet.create({
   },
   navbar: {
     marginTop: 30
+  },
+  pokeCount: {
+    backgroundColor: COLORS.black,
+    padding: 5,
+  },
+  pokeCountText: {
+    textAlign: "center",
+    fontFamily: "ValeriaRound-Regular",
+    fontSize: 16,
+    color: COLORS.white
   },
   pokeList: {
     padding: 5,
