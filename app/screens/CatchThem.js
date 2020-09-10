@@ -105,7 +105,7 @@ export default function CatchThem({ navigation }) {
       </View>
       <PokeDisplay pokemon={pokemon} isLoading={isLoading} />
       <TouchableOpacity style={styles.catchButton} onPress={catchingIt}>
-        <Text style={styles.catchText}>Catch it</Text>
+        <Text style={styles.catchText}>CATCH !</Text>
       </TouchableOpacity>
       <StatusBar style="light" backgroundColor={COLORS.navyBlue} />
     </View>
