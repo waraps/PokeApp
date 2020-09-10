@@ -1,58 +1,41 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 // Expo imports
 import Constants from "expo-constants";
 
-// Assests
+// Utils
 import { COLORS } from "../utils/colors";
+
+// Components
+import PokePhoto from "../components/PokePhoto";
+import PokeNameStripe from "../components/PokeNameStripe";
+import Stripe from "../components/Stripe";
+import Measure from "../components/Measure";
+import InfoList from "../components/InfoList";
+import MoveList from "../components/MoveList";
 
 const PokeDetails = ({ route }) => {
   const { pokemon } = route.params;
+
   return (
     <View style={styles.container}>
       <View style={styles.pokeContainer}>
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.tinyLogo}
-            source={{ uri: pokemon.sprites.front_default }}
-          />
-          <Image
-            style={styles.tinyLogo}
-            source={{ uri: pokemon.sprites.back_default }}
-          />
-        </View>
-        <View style={styles.pokeNameContainer}>
-          <Text style={styles.pokeName}>{pokemon.name}</Text>
-        </View>
+        <PokePhoto sprites={pokemon.sprites} />
+        <PokeNameStripe name={pokemon.name} />
       </View>
-      <ScrollView >
-        <Text> details test first</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test</Text>
-        <Text> details test last</Text>
-      </ScrollView>
+      <Stripe text="DETAILS" />
+      <View style={styles.measureContainer}>
+        <Measure measure={pokemon.weight} title="Weight" unit="Kg"/>
+        <Measure measure={pokemon.height} title="Height" unit="m"/>
+      </View>
+      <View style={styles.infoContainer}>
+        <InfoList types={pokemon.types} />
+        <InfoList abilities={pokemon.abilities} />
+      </View>
+      <Stripe text="MOVES" />
+      <MoveList moves={pokemon.moves} />
       <StatusBar style="light" backgroundColor={COLORS.lightBlue} />
     </View>
   );
@@ -65,31 +48,15 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   pokeContainer: {
-    backgroundColor: COLORS.yellow,
+    backgroundColor: COLORS.red,
   },
-  logoContainer: {
+  measureContainer: {
     flexDirection: "row",
-    justifyContent: "center",
-    padding: 5,
+    justifyContent: "space-around",
+    padding: 3,
   },
-  tinyLogo: {
-    width: 150,
-    height: 150,
+  infoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
-  pokeNameContainer: {
-    marginTop: -20,
-    alignItems: "center",
-  },
-  pokeName: {
-    fontSize: 35,
-    textTransform: "uppercase",
-    fontFamily: "ValeriaRound-Regular",
-    color: COLORS.white,
-    textShadowColor: COLORS.black,
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 10,
-  },
-  scrollDetails: {
-    padding: 5,
-  }
 });
