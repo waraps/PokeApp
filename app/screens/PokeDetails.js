@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 
 // Expo imports
 import Constants from "expo-constants";
@@ -20,28 +20,30 @@ const PokeDetails = ({ route }) => {
   const { pokemon } = route.params;
 
   return (
-    <View style={styles.container}>
-      <View style={styles.pokeContainer}>
-        <PokePhoto sprites={pokemon.sprites} />
-        <PokeNameStripe name={pokemon.name} />
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={styles.container}>
+        <View style={styles.pokeContainer}>
+          <PokePhoto sprites={pokemon.sprites} />
+          <PokeNameStripe name={pokemon.name} />
+        </View>
+        <Stripe text="DETAILS" />
+        <View style={styles.experienceContainer}>
+          <Text style={styles.experiencieTitle}>Base Experience: </Text>
+          <Text style={styles.experienceText}>{pokemon.base_experience}</Text>
+        </View>
+        <View style={styles.measureContainer}>
+          <Measure measure={pokemon.weight} title="Weight" unit="Kg" />
+          <Measure measure={pokemon.height} title="Height" unit="m" />
+        </View>
+        <View style={styles.infoContainer}>
+          <InfoList types={pokemon.types} />
+          <InfoList abilities={pokemon.abilities} />
+        </View>
+        <Stripe text="MOVES" />
+        <MoveList moves={pokemon.moves} name={pokemon.name}/>
+        <StatusBar style="light" backgroundColor={COLORS.lightBlue} />
       </View>
-      <Stripe text="DETAILS" />
-      <View style={styles.experienceContainer}>
-        <Text style={styles.experiencieTitle}>Base Experience: </Text>
-        <Text style={styles.experienceText}>{pokemon.base_experience}</Text>
-      </View>
-      <View style={styles.measureContainer}>
-        <Measure measure={pokemon.weight} title="Weight" unit="Kg" />
-        <Measure measure={pokemon.height} title="Height" unit="m" />
-      </View>
-      <View style={styles.infoContainer}>
-        <InfoList types={pokemon.types} />
-        <InfoList abilities={pokemon.abilities} />
-      </View>
-      <Stripe text="MOVES" />
-      <MoveList moves={pokemon.moves} />
-      <StatusBar style="light" backgroundColor={COLORS.lightBlue} />
-    </View>
+    </ScrollView>
   );
 };
 
