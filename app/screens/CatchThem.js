@@ -104,7 +104,7 @@ export default function CatchThem({ navigation }) {
         <AntDesign name="search1" size={28} color={COLORS.navyBlue} />
       </View>
       <PokeDisplay pokemon={pokemon} isLoading={isLoading} />
-      <TouchableOpacity style={styles.catchButton} onPress={catchingIt}>
+      <TouchableOpacity style={styles.catchButton} onPress={catchingIt} disabled={isLoading}>
         <Text style={styles.catchText}>CATCH !</Text>
       </TouchableOpacity>
       <StatusBar style="light" backgroundColor={COLORS.navyBlue} />
