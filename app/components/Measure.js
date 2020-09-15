@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
     marginRight: 3,
     fontSize: 18,
     fontFamily: "ValeriaRound-Regular",
-    color: COLORS.black
+    color: COLORS.black,
   },
   measure: {
     fontSize: 18,
     fontFamily: "ValeriaRound-Regular",
-    color: COLORS.black
+    color: COLORS.black,
   },
 });

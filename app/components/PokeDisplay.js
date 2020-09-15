@@ -22,7 +22,9 @@ export default class PokeDisplay extends Component {
                 uri: pokemon.sprites ? pokemon.sprites.front_default : "",
               }}
             />
-            {pokemon && <Text style={styles.pokemonName}> {pokemon.name} </Text>}
+            {pokemon && (
+              <Text style={styles.pokemonName}> {pokemon.name} </Text>
+            )}
           </View>
           <View style={styles.pokeDetails}>
             <Text style={styles.pokedetailsText}>Type</Text>
@@ -33,9 +35,7 @@ export default class PokeDisplay extends Component {
                     style={styles.tinyAbility}
                     source={require("../assets/img/pokeIcon.png")}
                   />
-                  <Text style={styles.itemDetails}>
-                    {type.type.name}
-                  </Text>
+                  <Text style={styles.itemDetails}>{type.type.name}</Text>
                 </View>
               );
             })}
@@ -47,9 +47,7 @@ export default class PokeDisplay extends Component {
                     style={styles.tinyAbility}
                     source={require("../assets/img/pokeIcon.png")}
                   />
-                  <Text style={styles.itemDetails}>
-                    {ability.ability.name}
-                  </Text>
+                  <Text style={styles.itemDetails}>{ability.ability.name}</Text>
                 </View>
               );
             })}

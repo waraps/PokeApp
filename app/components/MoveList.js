@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Text } from "react-native";
 
-import { COLORS } from "../utils/colors";
-
 // Components
 import MoveRow from "./MoveRow";
 

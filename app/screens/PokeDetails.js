@@ -40,7 +40,7 @@ const PokeDetails = ({ route }) => {
           <InfoList abilities={pokemon.abilities} />
         </View>
         <Stripe text="MOVES" />
-        <MoveList moves={pokemon.moves} name={pokemon.name}/>
+        <MoveList moves={pokemon.moves} name={pokemon.name} />
         <StatusBar style="light" backgroundColor={COLORS.lightBlue} />
       </View>
     </ScrollView>

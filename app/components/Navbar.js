@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+
+// Utils
 import { COLORS } from "../utils/colors";
 
 const Navbar = ({ navigation }) => {
@@ -9,8 +11,11 @@ const Navbar = ({ navigation }) => {
         style={styles.tinyLogo}
         source={require("../assets/img/pokeIcon.png")}
       />
-      <TouchableOpacity style={styles.search} onPress={() => navigation.push("CatchThem")}>
-      <Text style={styles.searchText}>catch'em</Text>
+      <TouchableOpacity
+        style={styles.search}
+        onPress={() => navigation.push("CatchThem")}
+      >
+        <Text style={styles.searchText}>catch'em</Text>
         <Image
           style={styles.dittoTinyLogo}
           source={require("../assets/img/ditto.png")}
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
   search: {
     flexDirection: "column-reverse",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   searchText: {
     color: COLORS.yellow,

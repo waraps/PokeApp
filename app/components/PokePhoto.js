@@ -1,9 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Image } from "react-native";
 
-// Utils
-import { COLORS } from "../utils/colors";
-
 export default function PokePhoto({ sprites }) {
   return (
     <View style={styles.photoContainer}>
@@ -28,7 +25,7 @@ const styles = StyleSheet.create({
   tinyPhoto: {
     width: 160,
     height: 160,
-    backgroundColor: 'whitesmoke',
+    backgroundColor: "whitesmoke",
   },
   photoRight: {
     borderTopLeftRadius: 30,

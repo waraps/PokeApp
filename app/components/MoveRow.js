@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+// Utils
 import { COLORS } from "../utils/colors";
 
 export default function MoveRow({ move, index }) {

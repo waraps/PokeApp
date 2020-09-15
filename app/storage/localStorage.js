@@ -15,4 +15,4 @@ export const localStorgae = {
       console.log(error + ", no se pudo obtener pokemon");
     }
   },
-}
+};

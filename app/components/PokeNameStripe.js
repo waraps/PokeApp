@@ -13,7 +13,6 @@ export default function PokeNameStripe({ name }) {
 }
 
 const styles = StyleSheet.create({
-  
   pokeName: {
     fontSize: 35,
     textTransform: "uppercase",
