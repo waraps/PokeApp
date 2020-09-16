@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/pokeIcon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/pokeIcon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,10 +17,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.waraps.pokeapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.waraps.pokeapp",
+      "versionCode": 1
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/pokeIcon.png"
     }
   }
 }
