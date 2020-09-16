@@ -2,7 +2,12 @@ import * as React from "react";
 import { Easing } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator, transitionSpec, CardStyleInterpolators, TransitionPresets } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  transitionSpec,
+  CardStyleInterpolators,
+  TransitionPresets,
+} from "@react-navigation/stack";
 
 // Screens
 import Home from "../screens/Home";
@@ -10,7 +15,7 @@ import CatchThem from "../screens/CatchThem";
 import PokeDetails from "../screens/PokeDetails";
 
 const config = {
-  animation: 'spring',
+  animation: "spring",
   config: {
     stiffness: 1000,
     damping: 400,
@@ -22,10 +27,10 @@ const config = {
 };
 
 const configClose = {
-  animation: 'timing',
+  animation: "timing",
   config: {
     duration: 400,
-    easing: Easing.linear
+    easing: Easing.linear,
   },
 };
 
@@ -33,19 +38,19 @@ const Stack = createStackNavigator();
 export default function Router() {
   return (
     <NavigationContainer>
-      <Stack.Navigator InitialRouteName={Home}
+      <Stack.Navigator
+        InitialRouteName={Home}
         screenOptions={{
           gestureEnabled: true,
-          gestureDirection: 'horizontal',
+          gestureDirection: "horizontal",
           // ...TransitionPresets.SlideFromRightIOS,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           transitionSpec: {
             open: config,
             close: configClose,
-          }
+          },
         }}
         animation="fade"
-
       >
         <Stack.Screen
           name="Home"
