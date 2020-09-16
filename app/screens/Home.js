@@ -42,9 +42,11 @@ export default function Home({ navigation }) {
         contentContainerStyle={{ flexGrow: 1, backgroundColor: COLORS.white }}
       >
         <View style={styles.pokeList}>
-          {pokemons.map((pokemon) => {
+          {pokemons.map((pokemon, index) => {
             return (
               <PokeCard
+                navigation={navigation}
+                index={index}
                 key={pokemon.name}
                 pokemon={pokemon}
                 navigation={navigation}
@@ -60,6 +62,7 @@ export default function Home({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: COLORS.white,
     paddingTop: Constants.statusBarHeight,
   },
