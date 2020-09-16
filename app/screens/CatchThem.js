@@ -7,12 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import { StackActions } from "@react-navigation/native";
 
 // Expo imports
 import { AntDesign } from "@expo/vector-icons";
 
 // Components
-import ActivityIndicatorApp from "../components/ActivityIndicatorApp";
 import PokeDisplay from "../components/PokeDisplay";
 
 // API
@@ -71,7 +71,7 @@ export default function CatchThem({ navigation }) {
           setMyPokemons(list);
           await localStorgae.setPokemon(list);
           setIsLoading(false);
-          navigation.push("Home");
+          navigation.dispatch(StackActions.replace("Home"));
         } else {
           setIsLoading(false);
           alert("This pokemon already was catched");
@@ -80,7 +80,7 @@ export default function CatchThem({ navigation }) {
         list.push(pokemon);
         await localStorgae.setPokemon(list);
         setIsLoading(false);
-        navigation.push("Home");
+        navigation.dispatch(StackActions.replace("Home"));
       }
     } catch (error) {
       console.log(erro + "Error al capturar pokemon");
