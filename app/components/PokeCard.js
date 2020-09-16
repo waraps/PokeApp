@@ -16,7 +16,7 @@ export default class PokeCard extends Component {
     try {
       const { index, navigation } = this.props;
       let pokemonsList = await localStorgae.getPokemon();
-      pokemonsList.splice(index, index);
+      pokemonsList.splice(index, 1);
       await localStorgae.setPokemon(pokemonsList);
       navigation.dispatch(StackActions.replace("Home"));
     } catch (error) {
