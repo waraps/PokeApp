@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, TouchableOpacity, Text, Image } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, Text, Image, Dimensions } from 'react-native'
 import { StackActions } from '@react-navigation/native'
 
 // Utils
@@ -12,6 +12,33 @@ import Confirm from './Confirm'
 import { localStorgae } from '../storage/localStorage'
 
 export default class PokeCard extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      orientation: this.isPortrait() ? 'portrait' : 'landscape'
+    }
+  }
+
+  componentDidMount = () => {
+    Dimensions.addEventListener('change', this.eventScreen)
+  }
+
+  isPortrait = () => {
+    const dim = Dimensions.get('screen')
+    return dim.height >= dim.width
+  }
+
+  eventScreen = () => {
+    this.setState({
+      orientation: this.isPortrait() ? 'portrait' : 'landscape'
+    })
+  }
+
+  componentWillUnmount = () => {
+    Dimensions.removeEventListener('change', this.eventScreen)
+  }
+
   deletePokemon = async () => {
     try {
       const { index, navigation } = this.props
@@ -39,14 +66,18 @@ export default class PokeCard extends Component {
   }
 
   render() {
+    const { orientation } = this.state
     const { pokemon, navigation } = this.props
     return (
-      <View style={styles.button}>
+      <View style={orientation === 'portrait' ? styles.button : styles.lButton}>
         <TouchableOpacity
           style={{ alignItems: 'center' }}
           onPress={() => navigation.push('PokeDetails', { pokemon })}
         >
-          <Image style={styles.tinyLogo} source={{ uri: pokemon.sprites.front_default }} />
+          <Image
+            style={orientation === 'portrait' ? styles.tinyLogo : styles.lTinyLogo}
+            source={{ uri: pokemon.sprites.front_default }}
+          />
           <Text style={styles.textName}> {pokemon.name} </Text>
           <Text style={styles.textMeasure}>W: {(pokemon.weight * 0.1).toFixed(2)} Kg</Text>
           <Text style={styles.textMeasure}>H: {(pokemon.height * 0.1).toFixed(2)} m</Text>
@@ -63,16 +94,28 @@ export default class PokeCard extends Component {
 
 const styles = StyleSheet.create({
   button: {
-    minWidth: 127,
+    width: '31.5%',
     marginVertical: 3,
-    marginHorizontal: 3,
+    marginLeft: 6,
+    borderRadius: 8,
+    backgroundColor: COLORS.white,
+    elevation: 9
+  },
+  lButton: {
+    width: '19%',
+    marginVertical: 3,
+    marginLeft: 6,
     borderRadius: 8,
     backgroundColor: COLORS.white,
     elevation: 9
   },
   tinyLogo: {
-    width: 120,
+    width: '100%',
     height: 120
+  },
+  lTinyLogo: {
+    width: '100%',
+    height: 145
   },
   textName: {
     textAlign: 'center',
