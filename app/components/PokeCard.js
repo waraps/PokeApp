@@ -16,6 +16,7 @@ export default class PokeCard extends Component {
     super()
 
     this.state = {
+      urlImage: 'https://img.pokemondb.net/sprites/black-white/anim/normal/',
       orientation: this.isPortrait() ? 'portrait' : 'landscape'
     }
   }
@@ -66,7 +67,7 @@ export default class PokeCard extends Component {
   }
 
   render() {
-    const { orientation } = this.state
+    const { urlImage, orientation } = this.state
     const { pokemon, navigation } = this.props
     return (
       <View style={orientation === 'portrait' ? styles.button : styles.lButton}>
@@ -76,7 +77,8 @@ export default class PokeCard extends Component {
         >
           <Image
             style={orientation === 'portrait' ? styles.tinyLogo : styles.lTinyLogo}
-            source={{ uri: pokemon.sprites.front_default }}
+            // source={{ uri: pokemon.sprites.front_default }}
+            source={{ uri:  `${urlImage}${pokemon.name}.gif` }}
           />
           <Text style={styles.textName}> {pokemon.name} </Text>
           <Text style={styles.textMeasure}>W: {(pokemon.weight * 0.1).toFixed(2)} Kg</Text>
@@ -96,26 +98,28 @@ const styles = StyleSheet.create({
   button: {
     width: '31.5%',
     marginVertical: 3,
-    marginLeft: 6,
+    marginLeft: 3,
     borderRadius: 8,
     backgroundColor: COLORS.white,
-    elevation: 9
+    elevation: 9,
+    justifyContent: 'space-between'
+
   },
   lButton: {
     width: '19%',
     marginVertical: 3,
-    marginLeft: 6,
+    marginLeft: 8,
     borderRadius: 8,
     backgroundColor: COLORS.white,
     elevation: 9
   },
   tinyLogo: {
-    width: '100%',
-    height: 120
+    width: '75%',
+    height: 95,
   },
   lTinyLogo: {
-    width: '100%',
-    height: 145
+    width: '80%',
+    height: 120
   },
   textName: {
     textAlign: 'center',
