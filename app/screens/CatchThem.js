@@ -46,7 +46,8 @@ export default function CatchThem({ navigation }) {
       setPokemon(pokeFormat)
       setIsLoading(false)
     } catch (error) {
-      console.log(error + 'Error al capturar pokemon')
+      alert('Error to search pokemon')
+      console.log(error + 'error to catch pokemon')
       setIsLoading(false)
     }
   }
@@ -55,7 +56,7 @@ export default function CatchThem({ navigation }) {
     try {
       setMyPokemons(await localStorgae.getPokemon())
     } catch (error) {
-      console.log(error + 'error al obtner pokemons')
+      console.log(error + 'error to get pokemons')
     }
   }
 
@@ -98,7 +99,8 @@ export default function CatchThem({ navigation }) {
         newNavigate()
       }
     } catch (error) {
-      console.log(erro + 'Error al capturar pokemon')
+      alert('Error to catch pokemon')
+      console.log(erro + 'Error to catch pokemon')
       setIsLoading(false)
     }
   }
