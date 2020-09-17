@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: "row",
     justifyContent: "space-between",
+    marginVertical: 30,
   },
   pokeContainer: {
     width: "50%",

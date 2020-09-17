@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight - 6,
   },
   navbar: {
     marginTop: 30,

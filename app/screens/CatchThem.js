@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import { CommonActions } from '@react-navigation/native'
 
 // Expo imports
+import Constants from "expo-constants";
 import { AntDesign } from '@expo/vector-icons'
 
 // Components
@@ -106,7 +107,8 @@ export default function CatchThem({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={{flexGrow: 1,}}>
+      <View style={styles.container}>
       <View style={styles.search}>
         <TextInput
           style={styles.searchInput}
@@ -126,6 +128,7 @@ export default function CatchThem({ navigation }) {
       </TouchableOpacity>
       <StatusBar style='light' backgroundColor={COLORS.navyBlue} />
     </View>
+    </ScrollView>
   )
 }
 
@@ -143,7 +146,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 60,
-    backgroundColor: COLORS.white
+    backgroundColor: COLORS.white,
+    marginVertical: 30,
   },
   searchInput: {
     width: '95%',
@@ -159,7 +163,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightBlue,
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: COLORS.yellow
+    borderColor: COLORS.yellow,
+    marginVertical: 30,
   },
   catchText: {
     color: COLORS.white,

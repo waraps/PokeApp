@@ -51,10 +51,11 @@ export default PokeDetails;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    marginTop: Constants.statusBarHeight - 6,
   },
   pokeContainer: {
     backgroundColor: COLORS.red,
+    paddingTop: 10,
   },
   measureContainer: {
     flexDirection: "row",
