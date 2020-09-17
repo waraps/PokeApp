@@ -27,7 +27,7 @@ export default function Home({ navigation }) {
         setPokemons(pokemonsList);
       }
     } catch (error) {
-      alert('error to trying show pokemons')
+      alert("Error to trying show pokemons");
       console.log(error + "error to trying show pokemons");
     }
   };
