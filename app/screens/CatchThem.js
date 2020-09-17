@@ -47,7 +47,6 @@ export default function CatchThem({ navigation }) {
       setPokemon(pokeFormat)
       setIsLoading(false)
     } catch (error) {
-      alert('Error to search pokemon')
       console.log(error + 'error to catch pokemon')
       setIsLoading(false)
     }
