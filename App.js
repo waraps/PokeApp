@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import * as Font from 'expo-font';
 import Router from './app/routes/Router'
 
-import ActivityIndicatorApp from './app/components/ActivityIndicatorApp'
+import IsLoading from './app/components/IsLoading'
 
 export default function App() {
 
@@ -21,6 +21,6 @@ export default function App() {
   if (!loaded) {
     return <Router />
   }
-  return <ActivityIndicatorApp />
+  return <IsLoading />
   
 }
