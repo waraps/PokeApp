@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
     padding: 5,
     flexDirection: "row",
     flexWrap: "wrap",
-    flexGrow: 1,
     backgroundColor: COLORS.white,
   },
 });
