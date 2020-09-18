@@ -14,6 +14,7 @@ import PokeNameStripe from "../components/PokeNameStripe";
 import Stripe from "../components/Stripe";
 import Measure from "../components/Measure";
 import InfoList from "../components/InfoList";
+import Stats from "../components/Stats";
 import MoveList from "../components/MoveList";
 
 const PokeDetails = ({ route }) => {
@@ -38,6 +39,12 @@ const PokeDetails = ({ route }) => {
         <View style={styles.infoContainer}>
           <InfoList types={pokemon.types} />
           <InfoList abilities={pokemon.abilities} />
+        </View>
+        <Stripe text="STATS" />
+        <View style={styles.statsContainer}>
+          {pokemon.stats.map((stat, index) => {
+            return <Stats stat={stat} key={index} />;
+          })}
         </View>
         <Stripe text="MOVES" />
         <MoveList moves={pokemon.moves} name={pokemon.name} />
@@ -74,6 +81,12 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     marginLeft: 3,
     fontFamily: "ValeriaRound-Regular",
+  },
+  statsContainer: {
+    width: "100%",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   experienceText: {
     fontSize: 20,

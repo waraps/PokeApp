@@ -50,6 +50,7 @@ export default function CatchThem({ navigation }) {
         moves: pokeResponse.moves,
         name: pokeResponse.name,
         sprites: pokeResponse.sprites,
+        stats: pokeResponse.stats,
         types: pokeResponse.types,
         weight: pokeResponse.weight,
       };
