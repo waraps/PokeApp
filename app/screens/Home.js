@@ -32,6 +32,7 @@ export default function Home({ navigation }) {
         setMemorySize(sizeof(pokemonsList))
         setIsLoading(false)
       }
+      setIsLoading(false)
     } catch (error) {
       setIsLoading(false)
       alert('Error to trying show pokemons')
