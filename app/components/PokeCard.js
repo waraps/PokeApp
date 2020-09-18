@@ -87,7 +87,7 @@ export default class PokeCard extends Component {
               orientation === "portrait" ? styles.tinyLogo : styles.lTinyLogo
             }
             // source={{ uri: pokemon.sprites.front_default }}
-            source={{ uri: `${urlImage}${pokemon.name}.gif` }}
+            source={{ uri: pokemon.id < 650 ? `${urlImage}${pokemon.name}.gif` : pokemon.sprites.front_default }}
           />
           <Text style={styles.textName}> {pokemon.name} </Text>
           <Text style={styles.textMeasure}>
