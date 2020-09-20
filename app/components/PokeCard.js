@@ -17,6 +17,7 @@ import Confirm from "./Confirm";
 
 // LocalStorage
 import { localStorgae } from "../storage/localStorage";
+import { sizeof } from "sizeof";
 
 export default class PokeCard extends Component {
   constructor() {
@@ -49,10 +50,13 @@ export default class PokeCard extends Component {
 
   deletePokemon = async () => {
     try {
-      const { index, navigation } = this.props;
-      let pokemonsList = await localStorgae.getPokemon();
+      const { index, pokemon, navigation } = this.props;
+
+      const pokemonsList = await localStorgae.getPokemon();
       pokemonsList.splice(index, 1);
       await localStorgae.setPokemon(pokemonsList);
+      const memorySize = (await localStorgae.getHowMany()) - sizeof(pokemon);
+      await localStorgae.setHowMany(memorySize);
       navigation.dispatch(StackActions.replace("Home"));
     } catch (error) {
       alert(error);
@@ -87,7 +91,12 @@ export default class PokeCard extends Component {
               orientation === "portrait" ? styles.tinyLogo : styles.lTinyLogo
             }
             // source={{ uri: pokemon.sprites.front_default }}
-            source={{ uri: pokemon.id < 650 ? `${urlImage}${pokemon.name}.gif` : pokemon.sprites.front_default }}
+            source={{
+              uri:
+                pokemon.id < 650
+                  ? `${urlImage}${pokemon.name}.gif`
+                  : pokemon.sprites.front_default,
+            }}
           />
           <Text style={styles.textName}> {pokemon.name} </Text>
           <Text style={styles.textMeasure}>

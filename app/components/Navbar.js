@@ -4,13 +4,13 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 // Utils
 import { COLORS } from '../utils/colors'
 
-const Navbar = ({ navigation, memorySize }) => {
+const Navbar = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image style={styles.tinyLogo} source={require('../assets/img/pokeIcon.png')} />
       <TouchableOpacity
         style={styles.search}
-        onPress={() => navigation.navigate('CatchThem', { memorySize })}
+        onPress={() => navigation.push('CatchThem')}
       >
         <Text style={styles.searchText}>catch'em</Text>
         <Image style={styles.dittoTinyLogo} source={require('../assets/img/ditto.png')} />
