@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/icon.png"
-    }
+    },
+    "description": "App based on pokemons characters.\nYou can catch them and see their information just like as a pokedex",
+    "githubUrl": "https://github.com/waraps/PokeApp"
   }
 }
