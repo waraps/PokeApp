@@ -12,7 +12,7 @@ web-build/
 # dotenv environment variables file
 .env
 .env.test
-app/api/env.js
+# app/api/env.js
 
 # macOS
 .DS_Store
